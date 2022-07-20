@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Table, Badge, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { listNameAll, listNameSent } from "../functions/main";
+import { listNameAllSec, listNameSentSec } from "../functions/elder";
 
 const Main = () => {
   const [dataNameAll, setDataNameAll] = useState([]);
   const [dataNameSent, setDataNameSent] = useState([]);
 
   const loadData = () => {
-    listNameAll()
+    listNameAllSec()
       .then((res) => {
         setDataNameAll(res.data);
       })
@@ -18,7 +18,7 @@ const Main = () => {
   };
 
   const loadDataSent = () => {
-    listNameSent()
+    listNameSentSec()
       .then((res) => {
         setDataNameSent(res.data);
       })
@@ -45,19 +45,20 @@ const Main = () => {
       <Container>
         <Row>
                 <Col>
-                        <Button className="m-2" variant="success"><Link style={{ textDecoration: "none", color: "white" }} to="/sec">ไปหน้าผล ATK (ปี 2)</Link></Button>
-                        
+                <Button className="m-2" variant="success"><Link style={{ textDecoration: "none", color: "white" }} to="/">ไปหน้าผล ATK (ปี 1)</Link></Button>
                 </Col>
         </Row>
         <Row>
-          <Col>รายชื่อผู้ส่ง ATK (ปี 1)</Col>
+          <Col>
+                รายชื่อผู้ส่ง ATK (ปี 2)
+          </Col>
         </Row>
         <Row>
           <Col>
           <Table striped bordered hover>
             <thead>
               <tr>
-                <th>เลขประจำตัว</th>
+                <th>E-Mails</th>
                 <th>ชื่อ นามสกุล</th>
                 <th>เบอร์โทรศัพท์</th>
                 <th>สถานะ</th>
